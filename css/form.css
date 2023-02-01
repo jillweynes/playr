@@ -1,0 +1,49 @@
+/*Author: Will Jeynes*/
+
+/*Main form display*/
+form {
+    grid-gap:10px;
+    display:grid;
+    grid-template-columns: max-content auto;
+    
+}
+/*Set minimum height, and resize instructions*/
+form textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+/*Specify text align*/
+form label {
+    display: inline-block;
+    text-align: right;
+    width: 100%;
+}
+/*Larger submit button*/
+input[type=submit] {
+    height: 4em;
+    cursor:pointer;
+}
+input[type=checkbox] {
+    width: max-content;
+}
+input, textarea {
+    border-radius:3px ;
+    border: 1px solid var(--accentColor);
+    background-color: var(--articleBColour);
+    transition: background-color 0.2s;
+    color: var(--articleTextColour);
+}
+input:hover, textarea:hover {
+    background-color: var(--backgroundColour);
+}
+/*Mobile set all form content to one column, reset text align*/
+@media (max-width: 1200px) {
+    form {
+        grid-template-columns: auto;
+        
+    }   
+    form label {
+        text-align: left;
+    }
+}
+

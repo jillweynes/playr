@@ -1,0 +1,391 @@
+/*Author: Will Jeynes*/
+:root {
+    --headColour: black;
+    --headTextColour: white;
+    --accentColor: rgb(216, 81, 81);
+    --accentVisibleColor: white;
+    --backgroundColour: rgb(56, 56, 56);
+    --articleBColour: black;
+    --articleTextColour: white;
+  }
+body {
+    /*Remove margin around page content*/
+    margin:0;
+
+    /*Allow for footer to be always on the bottom of the window, even if the page is smaller than the window*/
+    position: relative;
+    min-height: 100vh;
+    background-color: var(--backgroundColour);
+    font-family: Arial, Helvetica, sans-serif;
+}
+header{
+    background-color: var(--headColour);
+}
+header h1 {
+    font-size: 4em;
+    color: var(--headTextColour);
+    text-align: center;
+    margin: 0;
+    text-shadow: 3px 3px var(--accentColor);
+    transition: text-shadow 0.3s;
+}
+header h1:hover {
+    text-shadow: 6px 6px var(--accentColor);
+}
+header a {
+    text-decoration: none;
+}
+/*Reduce font size on smaller form factors, to save screen space*/
+@media (max-width: 1200px) {
+    header h1 {
+        font-size: 2.5em;
+    }
+}
+nav {
+    background-color: var(--headColour);
+
+    /*Appear on top of screen, even when scrolled past*/
+    position:sticky; 
+    top:0px;
+
+    /*Appear above all other elements*/
+    z-index: 2;
+
+    border-bottom: 5px solid var(--accentColor);
+}
+
+nav li {
+    /*Remove bullet point character*/
+    list-style: none;
+
+    padding: 30px;
+
+    /*Fill space as window is resized*/
+    flex-grow: 1;
+    text-align: center;
+}
+nav ul {
+    /*Fill space as window is resized*/
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    /*Fill to all extent of nav element*/
+    margin: 0;
+    padding-left: 0;
+}
+@media (min-width: 1200px) {
+    nav a:hover {
+        border: 4px solid var(--headTextColour);
+        
+    }
+}
+
+/*Hide checkbox on desktop view*/
+nav input {
+    display: none;
+}
+nav label {
+    display: none;
+}
+nav a {
+    text-decoration: none;
+    padding: 10px 30px 10px 30px;
+    color: var(--headTextColour);
+    font-weight: bold;
+    transition: border 0.1s;
+    border-radius: 8px;
+    text-shadow: 2px 2px var(--accentColor);
+}
+nav .current {
+    border: 3px solid var(--headTextColour);
+    border-radius: 6px;
+    
+}
+footer .current {
+    font-weight: bold;
+}
+/*Alternate styling for mobile view*/
+@media (max-width: 1200px) {
+    nav {
+        position: relative;
+        padding-right: 0px;
+        border-bottom: none;
+    }
+    nav a {
+        font-weight: normal;
+        text-shadow: none;
+    }
+    nav .current {
+        font-weight: bold;
+        border: 0;
+    }
+    nav li {
+        text-align: left;
+        border-bottom: 2px solid var(--accentColor);
+    }
+    /*Menu content. Default hidden with animation transition specified*/
+    nav ul {
+        display: block;
+        max-height: 0px;
+        overflow: hidden;
+        transition: max-height 1s;
+    }
+    /*When the input element is checked, show the menu in the list below*/
+    nav input:checked ~ ul {
+        max-height: 500px;
+    }
+
+    nav label {
+        width:auto;
+        background-color: var(--accentColor);
+        color: var(--accentVisibleColor);
+        display: block;
+        padding: 10px;
+    }
+    /*Down arrow, position and animation specified*/
+    nav img {
+        transition: transform 1s;
+        float:right;
+    }
+    /*When the menu us shown, rotate the arrow image, which is a child of the label component*/
+    nav input:checked + label img {
+        transform: rotate(180deg);
+    }
+    
+}
+
+/*Flex content*/
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    padding: 2%;
+    margin-top: 30px;
+    padding-bottom: 160px;
+}
+/*Main page header*/
+main>h1 {
+    color:var(--articleTextColour);
+    width: 100%;
+    text-align: left;
+    /*text-decoration: underline 10px;*/
+    border-bottom: 8px solid var(--accentColor);
+}
+
+/*Styling for main image display with caption*/
+.focusImage img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+.focusImage {
+    border: 3px solid var(--accentColor);
+    max-width: 300px;
+    border-radius: 5px;
+}
+.focusImage figcaption {
+    background-color: var(--accentColor);
+    color: var(--accentVisibleColor);
+    text-align: center;
+}
+
+/*Alternate CSS styling for an article element containing an image to the side of the content*/
+.asideBox img {
+    float:left;
+    max-width: 100%;
+    padding-right: 1%;
+    width: 20%;
+    background-color: var(--accentColor);
+    border-radius: 10px;
+    margin-right: 2%;
+}
+.asideBox > p {
+    padding-left: 21%;
+}
+.asideBox  li {
+    margin-left: 21%;
+}
+/*Tweakpoint to stop aside content entering quote content*/
+.asideBox .pquote {
+    margin-left: 22%;
+}
+
+/*Alternate styling to make float elements display properly on mobile form factor*/
+@media (max-width: 1200px) {
+    .asideBox img {
+        float:left;
+        max-width: 100%;
+        padding-right: 0%;
+        margin-right: 2%;
+        width: 40%;
+       
+    }
+    .asideBox p {
+        padding-left: 1%;
+    }
+    .asideBox  li{
+        margin-left: 1%;
+    }
+    .asideBox .pquote {
+        margin-left: 1%;
+        clear: both;
+    }
+    
+}
+/*Tweakpoint: Force paragraph content to clear floating elements on really small displays*/
+@media(max-width: 600px) {
+    p {
+        clear:both;
+    }
+    .asideBox img {
+        width: 60%;
+    }
+}
+/*Article header*/
+article h1 {
+    color: var(--articleTextColour);
+    border-bottom: 8px solid var(--accentColor);
+}
+/*Article display*/
+article {
+    background-color: var(--articleBColour);
+    max-width: 100%;
+    min-width: 30%;
+    flex-grow: 1;
+    margin: 20px;
+    padding: 20px;
+    width:100%;
+    border-radius: 6px;
+    color:var(--articleTextColour);
+}
+
+/*hover effect for article elements*/
+@media(min-width:1200px) {
+    article:not(.quizArticle) {
+        transition: transform 0.3s;
+    }
+    article:hover:not(.quizArticle) {
+        transform: scale(1.02);
+    }
+}
+
+
+/*Alternative article display for desktop form factor*/
+@media (min-width: 1200px) {
+    article{
+        max-width: 43%;
+        width: auto;
+    }
+    .fullArticle {
+        max-width: 80%;
+        width: 80%;
+    }
+}
+
+/*Footer styling*/
+footer{
+    background-color: var(--headColour);
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: absolute;
+    bottom:0; 
+    width:100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-items:center;
+    border-top:3px;
+    border-bottom: 3px;
+    color:var(--headTextColour);
+}
+
+footer * {
+    padding: 10px;
+}
+footer a {
+    color: var(--headTextColour);
+    
+}
+@media (min-width: 1200px) {
+    footer a:hover {
+        text-decoration: underline double;
+    }
+}
+
+footer span a {
+    padding-left: 2px;
+}
+
+/*Font size*/
+p {
+    font-size: 1.2em;
+}
+@media (max-width: 1200px) {
+    p {
+        font-size: 1em;
+    }
+    
+}
+/*"Extra Classes" to be used in conjunction with those above for some elements*/
+.floatRight {
+    float:right;
+    margin-top:0px;
+}
+@media (max-width:600px) {
+
+    .floatRight,.floatLeft {
+        clear:both;
+    }
+}
+@media(max-width:1200px) {
+    .floatRight {
+        float: left;
+    }
+    figure {
+        clear:both;
+    }
+    p.floatRight + p {
+        clear:both;
+    }
+}
+.floatLeft {
+    float:left;
+    margin-top: 0px;
+}
+.monospace {
+    font-family:monospace
+}
+.fullWidth {
+    max-width:100%;
+}
+.mostWidth {
+    max-width: 60%;
+}
+.halfWidth {
+    max-width: 23%;
+}
+@media (max-width: 1200px) {
+    .mostWidth {
+        max-width: 100%;
+    }
+    .halfWidth {
+        max-width: 50%;
+    }
+    .fullWidth, .mostWidth {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}   
+@media (max-width: 600px) {
+    .halfWidth {
+        max-width: 100%;
+    }
+}
+
+/*Tweakpoint: define page sections */
+h2 {
+    clear:both;
+}

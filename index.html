@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<HTML lang="en">
+
+<HEAD>
+    <title>Will's Player</title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/quote.css" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="author" content="Will Jeynes">
+</HEAD>
+
+<BODY>
+    <header>
+        <a href="/"><h1>Will's Player</h1></a>
+    </header>
+    <nav>
+        <!--Checkbox element, used to toggle menu visibility on mobile. Hidden on desktop using CSS-->
+        <!--Only the label (which still toggles the state of the checkbox) is visible on mobile view, for aesthetic reasons.-->
+        <input id="check" type="checkbox" />
+        <label for="check">MENU<img src="/images/arrow.png" width="20" alt="down UI arrow" ></label>
+        <ul>
+            <li><a class="current" href="/">HOME</a></li>
+            <li><a class="none" href="/about">ABOUT</a></li>
+        </ul>
+    </nav>
+    <main id="mDiv">
+<link rel="stylesheet" href="/files/player.css" />
+
+<h1>Home</h1>
+<article class="fullArticle">
+    <h1>Search</h1>
+    <form name="contactForm" action="/search">
+        
+        <!--Visible form content-->
+        <label type="text" for="i">Instance:</label>
+        <input type="text" id="i" name="i" value="pipedapi.kavin.rocks"/>
+        
+        <label type="text" for="p">Thumb Proxy:</label>
+        <input type="text" id="p" name="p" value="pipedproxy.kavin.rocks"/>
+
+        <label type="text" for="y">Use yt for some thumbs:</label>
+        <input type="checkbox" id="y" name="y" checked/>
+
+        <label type="text" for="a">Autoplay:</label>
+        <input type="checkbox" id="a" name="a" checked/>
+
+        <label type="text" for="q">Search Query:</label>
+        <input type="text" id="q" name="q" />
+
+        
+        <input type="reset" value="x">
+        <div>
+            <input value="albums" type="submit" name="type" class="searchButton"/>
+            <input value="songs" type="submit" name="type" class="searchButton"/>
+            <input value="playlists" type="submit" name="type" class="searchButton"/>
+            <input value="channels" type="submit" name="type" class="searchButton"/>
+        </div>
+        
+
+
+    </form>
+</article>
+<link rel="stylesheet" href="/css/form.css" />
+    </main>
+    <footer>
+        <!--Copyright symbol Will Jeynes 2022-->
+        <span>&copy; Will Jeynes, 2023</span>
+        <span>Generated on 2023-02-01 by <a href="about:blank">Blank</a></span>
+    </footer>
+</BODY>
+
+</HTML>

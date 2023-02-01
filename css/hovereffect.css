@@ -1,0 +1,68 @@
+/*Author: Will Jeynes*/
+
+/*Main image view*/
+.hoverImage {
+    max-width: 100%;
+    border-radius: 8px;
+}
+/*Image Display*/
+.hoverImage img {
+    width: 100%;
+    border-radius: 3px;
+}
+/*Set transform on hover to allow for animation*/
+.hoverImage:hover~.otherp {
+
+
+    opacity: 0;
+    transform: translate(100px,-200px) rotate(30deg) scale(0.5);
+}
+/*p is result content*/
+.p {
+    height: 12em;
+    overflow: hidden;
+}
+/*Covering element*/
+.otherp {
+    display: block;
+    position: relative;
+
+    /*In order to stop flexbox resizing to fit element, despite it being out of normal flow*/
+    top: -12em;
+    margin-bottom: -12em;
+
+
+    left: 0px;
+    width: 100%;
+    height: 12em;
+    background-color: var(--accentColor);
+
+    /*Animation with both opacity and transform*/
+    transition: opacity ease-in 0.7s, transform ease 1s;
+    opacity: 1;
+
+    /*Tweakpoint: Appear below header*/
+    z-index: 0;
+
+    border-radius: 3px;
+}
+
+/*Covering element "Hover image" text*/
+.otherp p {
+    text-align: center;
+    font-size: 1em;
+    color: var(--accentVisibleColor);
+}
+.quizArticle {
+    height: max-content;
+}
+
+/*Override default hover behavior for article element*/
+@media(min-width:1200px) {
+    .quizArticle {
+        transition: transform 0.2s;
+    }
+    .quizArticle:hover {
+        transform:scale(1.006)
+    }
+}

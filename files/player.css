@@ -1,0 +1,36 @@
+
+video {
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.fullText {
+    width: 100%;
+    font-size: 3em;
+    text-align: center;
+    color:gray;
+}
+.fullText span {
+    transition: color 1s;
+}
+.fullText span:hover {
+    color: white;
+}
+
+.thumbImg {
+    width:200px;
+}
+.mImg {
+    padding: 0.5% !important;
+    margin-top: 1em;
+}
+.white {
+    color: white !important;
+}
+
+.searchButton {
+    width: 100%;
+}
+p {
+    overflow-wrap: anywhere;
+}

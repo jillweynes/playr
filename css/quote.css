@@ -1,0 +1,38 @@
+/*Author: Will Jeynes*/
+
+/*Main quote container*/
+.pquote {
+  background: var(--accentColor);
+  padding: 20px 65px 20px 65px;
+  margin: 20px 13px 13px 20px;
+  line-height: 39px;
+  background-image: url(../images/quote.png), url(../images/quoteend.png);
+  background-position: left top, right bottom;
+  background-repeat: no-repeat, no-repeat;
+  border-radius: 6px;
+  color: var(--accentVisibleColor)
+}
+
+/*Tweakpoint: remove margins on small screen size*/
+@media(max-width:1200px) {
+  .pquote {
+    margin: 0;
+  }
+}
+
+/* resets styling for blockquote */
+blockquote {
+  margin: 0;
+}
+
+/*Sets the styling for the first letter of the quote*/
+.pquote p:first-letter {
+  font-size: 39px;
+  font-weight: bold;
+
+}
+
+/*Accessibility: reset color for visited link inside of quote element to increase contrast*/
+.pquote a:visited, .pquote a {
+  color: inherit;
+}
