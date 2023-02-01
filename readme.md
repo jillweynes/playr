@@ -1,8 +1,8 @@
-#Will's player
-##About
+# Will's player
+## About
 A yt music frontend using the piped JSON api and vanilla JS.
 [Piped Gihub](https://github.com/TeamPiped/Piped)
-##Home page explanation
+## Home page explanation
 **Instance**
 The piped api instance to use (defaults to official instance)
 **Thumb Proxy**
