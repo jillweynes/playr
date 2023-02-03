@@ -166,14 +166,15 @@ function addAudioElement(data, container) {
         //container2.append(para);
         qualityList[i] = no;
 
-        qualityList = qualityList.sort(function (a, b) { return b - a; });
+        
 
-        console.log(qualityList);
+
 
 
     }
+    qualityList = qualityList.sort(function (a, b) { return b - a; });
     let maxQual = qualityList[0];
-
+    console.log(qualityList);
     //let tempnote = document.createElement("p");
     //tempnote.innerText = "HTML Video Loaded... ";
     //container2.append(tempnote);

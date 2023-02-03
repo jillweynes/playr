@@ -8,13 +8,13 @@ video {
     width: 100%;
     font-size: 3em;
     text-align: center;
-    color:gray;
+    color: var(--backgroundColour);
 }
 .fullText span {
     transition: color 1s;
 }
 .fullText span:hover {
-    color: white;
+    color: var(--accentColor);
 }
 
 .thumbImg {
@@ -25,7 +25,7 @@ video {
     margin-top: 1em;
 }
 .white {
-    color: white !important;
+    color: var(--articleTextColour) !important;
 }
 
 .searchButton {
