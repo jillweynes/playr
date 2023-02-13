@@ -184,9 +184,10 @@ function addAudioElement(data, container) {
         if (streamList[i]['quality'] == maxQual + " kbps") {
             let audio = document.createElement("video");
 
-            audio.setAttribute("controls", null);
+            audio.setAttribute("controls", "");
             audio.setAttribute("width", "250");
             audio.setAttribute("height", "40");
+            audio.volume = GetVolume()/100;
 
             let source = document.createElement("source")
 
@@ -212,6 +213,9 @@ function addAudioElement(data, container) {
 function addEndingChecker(element) {
     let int = setInterval(() => {
         UIProgressUpdate(100 * element.currentTime / element.duration + "%");
+        element.volume = GetVolume()/100;
+        //BUG-FIREFOX: video element fades out at low volumes unless this changes frequently
+        element.setAttribute("controls", " " + Math.random());
         if (Math.round(element.currentTime) == Math.round(element.duration)) {
             loadNextSong();
             clearInterval(int);
@@ -269,6 +273,10 @@ function UIHandle() {
 }
 function UIProgressUpdate(progress) {
     document.getElementById("UIProgress").setAttribute("style", "width: " + progress);
+}
+function GetVolume() {
+    console.log(document.getElementById("volRange").value);
+    return document.getElementById("volRange").value;
 }
 function next() {
     //alert("next");

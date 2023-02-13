@@ -1,7 +1,7 @@
-
 video {
     border: 1px solid black;
     border-radius: 5px;
+    width: 100%;
 }
 
 .fullText {
@@ -10,20 +10,24 @@ video {
     text-align: center;
     color: var(--backgroundColour);
 }
+
 .fullText span {
     transition: color 1s;
 }
+
 .fullText span:hover {
     color: var(--accentColor);
 }
 
 .thumbImg {
-    width:200px;
+    width: 200px;
 }
+
 .mImg {
     padding: 0.5% !important;
     margin-top: 1em;
 }
+
 .white {
     color: var(--articleTextColour) !important;
 }
@@ -31,6 +35,33 @@ video {
 .searchButton {
     width: 100%;
 }
+
 p {
     overflow-wrap: anywhere;
+}
+
+.progressBar {
+    width: 100%;
+    height: 20px;
+    border-radius: 5px;
+    border: 2px solid var(--accentColor);
+}
+
+.progressBar div {
+    height: 100%;
+    width: 0;
+    background-color: var(--accentColor);
+}
+
+.MSlider {
+    position: relative;
+    width: 60%;
+    left: 20%;
+    accent-color: var(--accentColor);
+}
+.MSlider-label {
+    position:relative; 
+    left: 19%;
+    top: -8px;
+    color: var(--backgroundColour);
 }
