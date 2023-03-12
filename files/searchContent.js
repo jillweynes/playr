@@ -72,15 +72,15 @@ function handleContent(playlistInfo) {
         let title = document.createElement("a");
         if (typ == "music_songs") {
             title.textContent = playlistInfo['items'][i]['title'];
-            title.setAttribute("href", "/player?song=" + final + "&i=" + ins + "&y=" + yton + "&a=" + aut);
+            title.setAttribute("href", "/playr/player?song=" + final + "&i=" + ins + "&y=" + yton + "&a=" + aut);
         }
         else if (typ == "channels" ) {
             title.textContent = playlistInfo['items'][i]['name'];
-            title.setAttribute("href", "/channel?channel=" + final + "&i=" + ins+ "&p="+ pins+"&y=" + yton);
+            title.setAttribute("href", "/playr/channel?channel=" + final + "&i=" + ins+ "&p="+ pins+"&y=" + yton);
         }
         else{
             title.textContent = playlistInfo['items'][i]['name'];
-            title.setAttribute("href", "/player?playlist=" + final + "&i=" + ins+ "&y=" + yton);
+            title.setAttribute("href", "/playr/player?playlist=" + final + "&i=" + ins+ "&y=" + yton);
             
         }
         title.setAttribute("class", "white");
@@ -102,14 +102,14 @@ function handleContent(playlistInfo) {
         let rrr = rr.substring(rr.indexOf("/"));
 
         let url = "https://" + pins + "" + rrr;
-        img.src='/images/arrow.png';
+        img.src='/playr/images/arrow.png';
             setTimeout(function() {
                 img.src = url;
             }, (i * 200));
         img.setAttribute("loading", "lazy");
         img.setAttribute("class", "thumbImg");
         img.onerror = (() => {
-            img.onerror = (() => {img.src='/images/arrow.png'; console.log("img loading error")});
+            img.onerror = (() => {img.src='/playr/images/arrow.png'; console.log("img loading error")});
             img.src='/images/arrow.png';
             setTimeout(function() {
                 img.src = url;
